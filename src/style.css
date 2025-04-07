@@ -24,9 +24,10 @@ body{
     justify-content: center;
 }
 
-#simbol-two{
-    display: flex;
-    justify-content: right;
+#symbol-two{
+    transform: rotate(180deg);
+    margin-left: auto;
+    width: fit-content;
 }
 
 button{
