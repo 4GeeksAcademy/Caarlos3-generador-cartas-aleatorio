@@ -39,6 +39,36 @@ function cardRandomizer() {
 
 }
 
-setInterval(cardRandomizer, 5000);
+function modifyCard() {
+  const cardWidth = document.getElementById('widthCard').value;
+  const cardHeight = document.getElementById('heightCard').value;
+  const card = document.getElementById('card');
+  const number = document.getElementById('number');
+  const symbolTop = document.getElementById('symbol');
+  const symbolBottom = document.getElementById('symbol-two');
 
-button.addEventListener("click", cardRandomizer);
+
+  if (cardWidth && cardHeight) {
+    card.style.width = cardWidth + 'px';
+    card.style.height = cardHeight + 'px';
+
+    const fontSize = Math.min(cardWidth, cardHeight) * 0.3;
+    number.style.fontSize = fontSize + 'px';
+    symbolTop.style.fontSize = fontSize + 'px';
+    symbolBottom.style.fontSize = fontSize + 'px';
+    card.style.overflow = 'hidden';
+
+  }
+
+}
+
+function pressButton() {
+  modifyCard();
+  cardRandomizer();
+}
+
+setInterval(cardRandomizer, 10000);
+
+button.addEventListener("click", pressButton);
+
+window.addEventListener("load", cardRandomizer);
